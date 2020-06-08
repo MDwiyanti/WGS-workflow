@@ -2,7 +2,7 @@
 
 This is a workflow to map whole genome resequencing raw reads to a reference genome using bwa mem and picard.
 In this tutorial, soybean reference genome Williams82 (Gmax_275_v2.0.fa) is used.
-The sequence can be obtained from Phytozome database.
+The sequence can be obtained from Phytozome database (https://phytozome.jgi.doe.gov/pz/portal.html).
 
 Citation and installation
 1. bwa : Li H. and Durbin R. (2009) Fast and accurate short read alignment with Burrows-Wheeler Transform.
