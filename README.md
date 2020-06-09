@@ -23,15 +23,18 @@ Steps:
           java -jar picard.jar CreateSequenceDictionary REFERENCE=Gmax_275_v2.0.fa OUTPUT=Gmax_275_v2.0.dict &
 
 
+
 2. Create directory for each sample. For example, creating directory for Sample01
 
           mkdir Sample01
+  
   
   
 3. In Sample directory, create link to raw reads (paired-end data of Sample01 : Sample01_fq.gz and Sample01_2.fq.gz)
 
           ln -s <path_to_folder>/Sample01_1.fq.gz Sample01_1.fq.gz
           ln -s <path_to_folder>/Sample01_2.fq.gz Sample01_2.fq.gz
+
 
 
 4.  Run mapping using wgs.sh (start from mapping by bwa mem to fixmate-markduplicate by picard.jar).
@@ -48,11 +51,18 @@ Steps:
      
      For example, if the reference genome is located in 'Desktop/reference' directory, set <path_to_folder> as:
           ~/Desktop/reference/Gmax_275_v2.0.fa
-          
+        
+        
           
 5. wgs.sh will give outputs : out.sam, sorted.bam, fixmate.bam, and Sample01.bam.
 
    Sample01.bam will be input for subsequent analyses such as SNP/indel calling using GATK. 
+   
+
+
+6. RealignerTargetCreator, IndelRealigner, and variant calling using GATK.
+
+
    
 
 
