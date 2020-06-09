@@ -10,16 +10,24 @@ Citation and installation
           (http://bio-bwa.sourceforge.net)
 2. picard : http://broadinstitute.github.io/picard/
 
-
-Before starting analysis, reference genome index should be prepared for both bwa and picard.
-
-Create bwa index:
+Steps:
+1. One time action: Prepare reference genome indexes for both bwa and picard. 
+   In directory containing Gmax_275_v2.0.fa,
+   Create bwa index:
       
-      bwa index Gmax_275_v2.0.fa &
+          bwa index Gmax_275_v2.0.fa &
 
 
-Create sequence dictionary:
+   Create sequence dictionary:
       
-      java -jar picard.jar CreateSequenceDictionary REFERENCE=Gmax_275_v2.0.fa OUTPUT=Gmax_275_v2.0.dict &
-      
+          java -jar picard.jar CreateSequenceDictionary REFERENCE=Gmax_275_v2.0.fa OUTPUT=Gmax_275_v2.0.dict &
+
+
+2. Create directory for each sample
+
+          mkdir $Sample_name
+          
+3. In Sample directory, create link to raw reads
+
+          
 
