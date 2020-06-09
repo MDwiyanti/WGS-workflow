@@ -65,10 +65,21 @@ Steps:
 6. Optional: 
    add readgroup ID to sample using picard.jar. This is useful when we plan to do variant calling of multiple samples.
    
+          java –jar <path_to_folder>/picard.jar AddOrReplaceReadGroups I=Sample01.bam O=Sample01.addrep.bam RGID=S01 RGLB=001 RGPU=001 RGSM=S01 RGPL=illumina VALIDATION_STRINGENCY=LENIENT CREATE_INDEX=TRUE & 
+          
    
-
-
-
+   RGID : sample name
+   
+   RGSM : sample name
+  
+   RGPL : sequencing platform
+  
+   RGPU : read group run barcode (arbitrary)
+   
+   RGLB : sequencing library (arbitrary)
+          
+          
+        
 6. RealignerTargetCreator, IndelRealigner, and variant calling using GATK3.8. 
    
    RealignerTargetCreator-IndelRealigner detects small misalignment around indel and adjust the alignment.
@@ -78,9 +89,9 @@ Steps:
    However, newer GATK4 does not utilize these options to call variants (will be added later).
 
 
-          java -jar <path_to_folder>/GenomeAnalysisTK.jar -T RealignerTargetCreator -R <path_to_folder>/Gmax_275_v2.0.fa -I Sample01.bam –o realn.list &
+          java -jar <path_to_folder>/GenomeAnalysisTK.jar -T RealignerTargetCreator -R <path_to_folder>/Gmax_275_v2.0.fa -I Sample01.addrep.bam –o realn.list &
 
-          java –jar <path_to_folder>/GenomeAnalysisTK.jar -T IndelRealigner –R <path_to_folder>/Gmax_275_v2.0.fa -I Sample01.bam -targetIntervals realn.list -o Sample01.realigned.bam &
+          java –jar <path_to_folder>/GenomeAnalysisTK.jar -T IndelRealigner –R <path_to_folder>/Gmax_275_v2.0.fa -I Sample01.addrep.bam -targetIntervals realn.list -o Sample01.realigned.bam &
 
           java -jar <path_to_folder>/GenomeAnalysisTK.jar -T UnifiedGenotyper –R <path_to_folder>/Gmax_275_v2.0.fa -I Sample01.realigned.bam -o Sample01.vcf -glm SNP -mbq 20 -out_mode EMIT_VARIANTS_ONLY &
           
