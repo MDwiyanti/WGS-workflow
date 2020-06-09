@@ -47,10 +47,11 @@ Steps:
      This can be done in text editor.
      
      For example, if the reference genome is located in 'Desktop/reference' directory, set <path_to_folder> as:
-     ~/Desktop/reference/Gmax_275_v2.0.fa
+          ~/Desktop/reference/Gmax_275_v2.0.fa
           
           
-5. wgs.sh will give outputs : out.sam, sorted.bam, fixmate.bam, and Sample01.bam
+5. wgs.sh will give outputs : out.sam, sorted.bam, fixmate.bam, and Sample01.bam.
+
    Sample01.bam will be input for subsequent analyses such as SNP/indel calling using GATK. 
    
 
