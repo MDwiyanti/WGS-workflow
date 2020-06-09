@@ -49,7 +49,10 @@ Steps:
           
           
 5. wgs.sh will give outputs : out.sam, sorted.bam, fixmate.bam, and Sample01.bam
-   Sample01.bam will be input for subsequent analysis such as SNV calling by GATK. 
+   Sample01.bam will be input for subsequent analyses such as SNP/indel calling using GATK. 
+   
+
+
    
    
    
