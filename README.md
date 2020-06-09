@@ -35,7 +35,8 @@ Steps:
 
 
 4.  Run mapping using wgs.sh (start from mapping by bwa mem to fixmate-markduplicate by picard.jar)
-
+    Example:
+    
           sh wgs.sh 3 Sample01_1.fq.gz Sample01_2.fq.gz Sample01
 
    
@@ -47,4 +48,9 @@ Steps:
      ~/Desktop/reference/Gmax_275_v2.0.fa
           
           
-
+5. wgs.sh will give outputs : out.sam, sorted.bam, fixmate.bam, and Sample01.bam
+   Sample01.bam will be input for subsequent analysis such as SNV calling by GATK. 
+   
+   
+   
+   
