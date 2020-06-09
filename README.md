@@ -5,10 +5,14 @@ In this tutorial, soybean reference genome Williams82 (Gmax_275_v2.0.fa) is used
 The sequence can be obtained from Phytozome database (https://phytozome.jgi.doe.gov/pz/portal.html).
 
 Citation and installation
-1. bwa : Li H. and Durbin R. (2009) Fast and accurate short read alignment with Burrows-Wheeler Transform.
+1. bwa : Li H and Durbin R (2009) Fast and accurate short read alignment with Burrows-Wheeler Transform.
           Bioinformatics, 25:1754-60. [PMID: 19451168]
           (http://bio-bwa.sourceforge.net)
 2. picard : http://broadinstitute.github.io/picard/
+3. GATK:  McKenna A, Hanna M, Banks E, Sivachenko A, Cibulskis K, Kernytsky A, Garimella K, Altshuler D, Gabriel S, Daly M,        
+          DePristo MA (2010) The Genome Analysis Toolkit: a MapReduce framework for analyzing next-generation DNA sequencing 
+          data. GENOME RESEARCH 20:1297-303
+          (http://gatk.broadinstitute.org/hc/en-us)
 
 Steps:
 1. One time action: Prepare reference genome indexes for both bwa and picard. 
