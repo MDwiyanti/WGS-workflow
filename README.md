@@ -23,11 +23,17 @@ Steps:
           java -jar picard.jar CreateSequenceDictionary REFERENCE=Gmax_275_v2.0.fa OUTPUT=Gmax_275_v2.0.dict &
 
 
-2. Create directory for each sample
+2. Create directory for each sample. For example, creating directory for Sample01
 
-          mkdir $Sample_name
-          
-3. In Sample directory, create link to raw reads
+          mkdir Sample01
+  
+  
+3. In Sample directory, create link to raw reads (paired-end data of Sample01 : Sample01_fq.gz and Sample01_2.fq.gz)
 
+          ln -s <path_to_folder>/Sample01_1.fq.gz Sample01_1.fq.gz
+          ln -s <path_to_folder>/Sample01_2.fq.gz Sample01_2.fq.gz
+
+
+4.  Run alignment 
           
 
