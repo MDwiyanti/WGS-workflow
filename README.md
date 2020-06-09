@@ -34,6 +34,17 @@ Steps:
           ln -s <path_to_folder>/Sample01_2.fq.gz Sample01_2.fq.gz
 
 
-4.  Run alignment 
+4.  Run mapping using wgs.sh (start from mapping by bwa mem to fixmate-markduplicate by picard.jar)
+
+          sh wgs.sh 3 Sample01_1.fq.gz Sample01_2.fq.gz Sample01
+
+   
+     usage: sh wgs.sh <number_of_threads> <raw_reads_pair1> <raw_reads_pair2> <sample_name>
+     Before running, edit <path_to_folder> in wgs.sh so it directs to the location of picard.jar and reference genome.
+     This can be done in text editor.
+     
+     For example, if the reference genome is located in 'Desktop/reference' directory, set <path_to_folder> as:
+     ~/Desktop/reference/Gmax_275_v2.0.fa
+          
           
 
