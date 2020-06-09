@@ -62,9 +62,42 @@ Steps:
 
    Sample01.bam will be input for subsequent analyses such as SNP/indel calling using GATK. 
    
+6. Optional: 
+   add readgroup ID to sample using picard.jar. This is useful when we plan to do variant calling of multiple samples.
+   
+   
 
 
-6. RealignerTargetCreator, IndelRealigner, and variant calling using GATK.
+
+6. RealignerTargetCreator, IndelRealigner, and variant calling using GATK3.8. 
+   
+   RealignerTargetCreator-IndelRealigner detects small misalignment around indel and adjust the alignment.
+   
+   Here, we use UnifiedGenotyper for variant calling.
+   
+   However, newer GATK4 does not utilize these options to call variants (will be added later).
+
+
+          java -jar <path_to_folder>/GenomeAnalysisTK.jar -T RealignerTargetCreator -R <path_to_folder>/Gmax_275_v2.0.fa -I Sample01.bam –o realn.list &
+
+          java –jar <path_to_folder>/GenomeAnalysisTK.jar -T IndelRealigner –R <path_to_folder>/Gmax_275_v2.0.fa -I Sample01.bam -targetIntervals realn.list -o Sample01.realigned.bam &
+
+          java -jar <path_to_folder>/GenomeAnalysisTK.jar -T UnifiedGenotyper –R <path_to_folder>/Gmax_275_v2.0.fa -I Sample01.realigned.bam -o Sample01.vcf -glm SNP -mbq 20 -out_mode EMIT_VARIANTS_ONLY &
+          
+          
+    Options:
+    
+    -glm            BOTH, SNP, INDEL
+    
+    -mbq            integer (minimum base quality)
+    
+    -out_mode       EMIT_VARIANTS_ONLY, EMIT_ALL_CONFIDENT_SITES, EMIT_ALL_SITES                                        
+    
+          
+          
+
+
+          
 
 
    
